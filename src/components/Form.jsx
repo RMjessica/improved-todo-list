@@ -1,8 +1,6 @@
 import React from "react";
+import { IoAddOutline } from "react-icons/io5";
 
-//I can add props as my function parameter
-// and add it before the return as props.setInputText
-// or I can add it directly 
 const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
 
   const inputTextHandler = (e) => {
@@ -13,8 +11,8 @@ const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
   const submitTasksHandler = (e) => {
     e.preventDefault();
     setTodos([
-      ...todos, 
-      {text: inputText, completed: false, id: Math.random() * 1000}
+      ...todos,
+      { text: inputText, completed: false, id: Math.random() * 1000 }
     ]);
     setInputText("");
   };
@@ -24,32 +22,34 @@ const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
   };
 
   return (
-    
-      <form>
-        
-          <input 
-          value={inputText}
-          onChange={inputTextHandler}
-          type="text" 
-          className="formControl" 
-          placeholder="Add new task"
+    <div className="container">
+      <form className="row">
+        <div className="col input-group">
+
+          <input
+            className="form-control"
+            type="text"
+            placeholder="Add new task"
+            aria-describedby="button-addon2"
+            value={inputText}
+            onChange={inputTextHandler}
           />
 
-          <button onClick={submitTasksHandler} className="btn btn-outline-dark">
-            <i className="fas fa-plus square" >Add Task</i>
+          <button onClick={submitTasksHandler} className="btn btn-outline-dark" id="button-addon2">
+            <IoAddOutline className="mb-1" />
           </button>
-       
+        </div>
 
-        <div className="select">
-          <select onClick={statusHandler} name="tasks" className="filter'tasks">
-            <option value="all">All Tasks</option>
+        <div className="col">
+          <select className="form-select filter'tasks" aria-label="Default select example" onClick={statusHandler} name="tasks" >
+            <option defaultValue="all">All Tasks</option>
             <option value="completed">Completed</option>
             <option value="uncompleted">Uncompleted Tasks</option>
           </select>
         </div>
-
       </form>
-     
+    </div>
+
   );
 };
 

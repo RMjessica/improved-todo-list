@@ -4,15 +4,16 @@ import Todo from "./Todo.jsx";
 const List = ({ todos, setTodos, filteredTodos }) => {
 
   return (
-    <div className="">
-      <ul className="">
-        {filteredTodos.map(todo => ( 
-          <Todo 
-          todo={todo}
-          todos={todos} 
-          setTodos={setTodos}
-          key={todo.id} 
-          text={todo.text}/>
+    <div>
+      <ul className="list-unstyled">
+        {filteredTodos.map(todo => (
+          <Todo
+            todo={todo}
+            todos={todos}
+            setTodos={setTodos}
+            key={todo.id}
+            text={todo.text}
+          />
         ))}
       </ul>
     </div>
