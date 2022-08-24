@@ -4,8 +4,8 @@ import Todo from "./Todo.jsx";
 const List = ({ todos, setTodos, filteredTodos }) => {
 
   return (
-    <div>
-      <ul className="list-unstyled">
+    <div className="container">
+      <ul className="list-unstyled row row-cols-3 fw-light text-center mx-4">
         {filteredTodos.map(todo => (
           <Todo
             todo={todo}
@@ -19,5 +19,5 @@ const List = ({ todos, setTodos, filteredTodos }) => {
     </div>
   );
 };
-// in ul instead of using todos.map, I use filteredTodos for cate to work
+
 export default List;

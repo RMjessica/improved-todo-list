@@ -1,5 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital@1&family=Dosis&family=Open+Sans:wght@300&family=Roboto:wght@100&display=swap');
+.wrapper {
+    display: inline-flex;
+    list-style: none;
+    float: right;
+}
 
-.App {
-  text-align: center;
+.wrapper .icon {
+    background: #ffffff;
+    border-radius: 50%;
+    margin: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .github:hover,
+.wrapper .github:hover,
+.wrapper .github:hover {
+    background: #545353;
+    color: #ffffff;
+}
+
+.wrapper .linkedin:hover,
+.wrapper .linkedin:hover,
+.wrapper .linkedin:hover {
+    background: #8094f5;
+    color: #ffffff;
 }

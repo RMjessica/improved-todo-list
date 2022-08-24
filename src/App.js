@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import './App.css';
 import Form from "./components/Form.jsx";
 import List from "./components/List.jsx";
+import { BsLinkedin, BsGithub } from "react-icons/bs";
+import "./App.css"
 
 function App() {
   
@@ -23,18 +24,38 @@ function App() {
           default:
             setfilteredTodos(todos);
             break;
-          }
-        }  
+      }
+    }  
 
-        filterHandler();
-      }, [todos, status]);                                     //it will run again whenever my todos value changes
+    filterHandler();
+  }, [todos, status]);                                     //it will run again whenever my todos value changes
       
   return (
     <>
-      <div className="container d-flex align-items-center justify-content-center">
-        <div className="card" style={{width:"60rem"}}>
+      <div className="wrapper">
+        <div className="icon github">
+          <a
+            href="https://github.com/RMjessica"
+            className="link-dark"
+            target="blank"
+          >
+            <BsGithub size={25}/>
+          </a>
+        </div>
+        <div className="icon linkedin">
+          <a
+            href="https://www.linkedin.com/in/rmjessica/"
+            className="link-dark"
+            target="blank"
+          >
+            <BsLinkedin size={25}/>
+          </a>
+        </div>
+      </div>
+      <div className="row d-flex aligns-items-center justify-content-center">
+        <div className="col-10 card position-absolute top-50 start-50 translate-middle shadow p-3">
           <div className="card-body">
-            <h1 className="card-title m-5">My tasks</h1>
+            <h1 className="card-title m-2 text-center fw-light mb-5">My tasks</h1>
 
             <Form 
               inputText={inputText}
@@ -43,11 +64,16 @@ function App() {
               setTodos={setTodos}
               setStatus={setStatus}
             />
+
+            <hr className="mx-3 my-4" />
+
+            {filteredTodos.length > 0 ? (
             <List 
               todos={todos} 
               setTodos={setTodos}
               filteredTodos={filteredTodos}
             />  
+             ) : <div className="text-center">No tasks</div> }
           </div>
         </div>
       </div>
