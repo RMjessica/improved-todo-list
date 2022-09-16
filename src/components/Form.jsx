@@ -3,25 +3,50 @@ import { IoAddOutline } from "react-icons/io5";
 
 const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
 
-  const [error, setError] = useState(false);
+  const [errors, setErrors] = useState(
+    {
+      'error': false,
+      'msg': ""
+    }
+  );
 
   const inputTextHandler = (e) => {
-    setInputText(e.target.value);
+    if (e.target.value.length < 25) {
+      setInputText(e.target.value);
+      setErrors(    {
+        'error': false,
+        'msg': ""
+      })
+    } else {
+      let d_error = {
+        'error': true,
+        'msg': "The task cannot exceed 25 characters"
+      }
+      setErrors({...d_error})
+    }
   };
+ 
 
   const submitTasksHandler = (e) => {
     e.preventDefault();
     if (inputText.trim().length === 0) {
-      setError(true);
+      let d_error = {
+        'error': true,
+        'msg': "You forgot to add your task"
+      }
+      setErrors({...d_error})
       return;
     }
 
-    setError(false);
     setTodos([
       ...todos,
       { text: inputText.trim(), completed: false, id: Math.random() * 1000 }
     ]);
     setInputText("");
+    setErrors(    {
+      'error': false,
+      'msg': ""
+    })
   };
 
   const statusHandler = (e) => {
@@ -55,8 +80,8 @@ const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
           </select>
         </div>
 
-        {error ? (
-          <div className="ms-2 mt-2">You forgot to add your task</div>
+        {errors.error ? (
+          <div className="ms-2 mt-2 text-danger">{errors.msg}</div>
         ) : null}
       </form>
     </div>
