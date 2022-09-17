@@ -34,6 +34,7 @@ const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
         'msg': "You forgot to add your task"
       }
       setErrors({...d_error})
+      setInputText("");
       return;
     }
 
