@@ -74,8 +74,9 @@ function App() {
                 selected={selected}
                 setSelected={setSelected}
               />
-              ) : "" }
-            <hr className="mx-3 my-4" />
+              ) : ""}
+
+            <hr className="mx-3 my-4"/>
             
             {filteredTodos.length > 0 ? (
               <List 
@@ -84,7 +85,7 @@ function App() {
                 filteredTodos={filteredTodos}
                 selected={selected}
               />  
-             ) : <div className="text-center">No tasks</div> }
+             ) : <div className="text-center">No tasks</div>}
           </div>
         </div>
       </div>

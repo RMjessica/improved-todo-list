@@ -55,6 +55,7 @@ const Select = ({todos, setTodos, selected, setSelected}) => {
           onClick={selectedHandler}
           className="ms-2"
           size={20}
+          style={{ color: selected ? "#4476ea" : "#1c1a1a" }}
         />
       </div> 
     </>
