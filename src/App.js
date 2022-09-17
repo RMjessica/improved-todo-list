@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Form from "./components/Form.jsx";
 import List from "./components/List.jsx";
+import Select from "./components/Select.jsx";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 import "./App.css"
 
@@ -10,16 +11,17 @@ function App() {
   const [todos, setTodos] = useState ([]);                     //store list of inputs
   const [status, setStatus] = useState ("all");                //classify todos by status
   const [filteredTodos, setfilteredTodos] = useState ([]);     //using diff state to filter todos state
+  const [selected, setSelected] = useState(false);  
 
   useEffect(() => {
 
     const filterHandler = () => {
       switch(status){
         case "completed": 
-        setfilteredTodos(todos.filter(todo => todo.completed === true))
+        setfilteredTodos(todos.filter(todo => todo.completed))
         break;
         case "uncompleted":
-          setfilteredTodos(todos.filter(todo => todo.completed === false))
+          setfilteredTodos(todos.filter(todo => !todo.completed))
           break;
           default:
             setfilteredTodos(todos);
@@ -28,8 +30,8 @@ function App() {
     }  
 
     filterHandler();
-  }, [todos, status]);                                     //it will run again whenever my todos value changes
-      
+  }, [todos, status]);                                   
+  
   return (
     <>
       <div className="wrapper">
@@ -65,14 +67,23 @@ function App() {
               setStatus={setStatus}
             />
 
+            {todos.length > 1 ? (
+              <Select 
+                todos={todos}
+                setTodos={setTodos}
+                selected={selected}
+                setSelected={setSelected}
+              />
+              ) : "" }
             <hr className="mx-3 my-4" />
-
+            
             {filteredTodos.length > 0 ? (
-            <List 
-              todos={todos} 
-              setTodos={setTodos}
-              filteredTodos={filteredTodos}
-            />  
+              <List 
+                todos={todos} 
+                setTodos={setTodos}
+                filteredTodos={filteredTodos}
+                selected={selected}
+              />  
              ) : <div className="text-center">No tasks</div> }
           </div>
         </div>

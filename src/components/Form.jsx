@@ -26,7 +26,6 @@ const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
     }
   };
  
-
   const submitTasksHandler = (e) => {
     e.preventDefault();
     if (inputText.trim().length === 0) {
@@ -40,7 +39,7 @@ const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
 
     setTodos([
       ...todos,
-      { text: inputText.trim(), completed: false, id: Math.random() * 1000 }
+      { text: inputText.trim(), completed: false, id: Math.random() * 1000, selected: false }
     ]);
     setInputText("");
     setErrors(    {
@@ -57,7 +56,6 @@ const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
     <div className="container">
       <form className="row p-3">
         <div className="col input-group">
-
           <input
             className="form-control"
             type="text"

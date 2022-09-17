@@ -1,7 +1,7 @@
 import React from "react";
 import Todo from "./Todo.jsx";
 
-const List = ({ todos, setTodos, filteredTodos }) => {
+const List = ({ todos, setTodos, filteredTodos, selected }) => {
 
   return (
     <div className="container">
@@ -12,7 +12,7 @@ const List = ({ todos, setTodos, filteredTodos }) => {
             todos={todos}
             setTodos={setTodos}
             key={todo.id}
-            text={todo.text}
+            selected={selected}
           />
         ))}
       </ul>
