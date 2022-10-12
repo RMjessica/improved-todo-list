@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Form from "./components/Form.jsx";
 import List from "./components/List.jsx";
 import Select from "./components/Select.jsx";
+import Tag from "./components/Tag.jsx";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 import "./App.css"
 
@@ -54,6 +55,7 @@ function App() {
           </a>
         </div>
       </div>
+      <Tag className="float-start" />
       <div className="row d-flex aligns-items-center justify-content-center">
         <div className="col-10 card position-absolute top-50 start-50 translate-middle shadow p-3">
           <div className="card-body">
