@@ -4,6 +4,10 @@ https://user-images.githubusercontent.com/88908436/190835376-a911ce48-8baa-4b06-
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+## Check it out live: 
+http://rmjessica.github.io/improved-todo-list
+
 ## Available Scripts
 
 In the project directory, you can run:
